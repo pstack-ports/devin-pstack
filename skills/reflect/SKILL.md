@@ -12,13 +12,15 @@ Invoke when the user says "reflect" or "/pstack:reflect". Skip when the conversa
 
 ## 1. Locate the active transcript
 
-Before fanning out, find this conversation's transcript in Devin's session store. `devin list` names the sessions for the current directory; their data lives under `~/Library/Application Support/Devin/` on macOS (`%APPDATA%\devin` on Windows). Do not read another project's sessions — that crosses workspace boundaries and reads private chats from unrelated projects.
+Before fanning out, find this conversation's transcript in Devin's session store. `devin list --format json` names the sessions for the current directory and gives each one's `id`. The CLI stores transcripts at `~/.local/share/devin/cli/transcripts/<id>.json` (Devin Desktop stores its own under `~/Library/Application Support/Devin/` on macOS, `%APPDATA%\devin` on Windows). Do not read another project's sessions — that crosses workspace boundaries and reads private chats from unrelated projects.
 
 ```bash
+devin list --format json | jq -r '.[].id'
+ls -t "$HOME/.local/share/devin/cli/transcripts"/*.json 2>/dev/null | head -10
 ls -t "$HOME/Library/Application Support/Devin"/User/**/*.jsonl "$HOME/Library/Application Support/Devin"/User/acp-messages/*.db 2>/dev/null | head -10
 ```
 
-Order candidates by real modification time and take the one whose opening user prompt matches this conversation. If none matches or the store is unreadable, pass a tight digest of the session instead.
+Prefer the CLI transcript whose `id` matches this session. Otherwise order candidates by real modification time and take the one whose opening user prompt matches this conversation. If none matches or the store is unreadable, pass a tight digest of the session instead.
 
 ## 2. Spawn three reviewers in parallel
 
