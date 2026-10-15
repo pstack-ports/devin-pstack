@@ -15,7 +15,7 @@ Run `devin models list` and read the slugs it prints. That is the dependable sou
 
 ### 2. Load current state
 
-The default role-to-model mapping is the rule shape shown in step 5 below. If `~/.devin/rules/pstack-models.md` already exists, read it and treat its `# budget` line and its role values as the current choices. Also check the other global rules directories Devin reads — `~/.cursor/rules/pstack-models.md` or `.mdc`, `~/.windsurf/rules/pstack-models.md` — for a copy left by another tool or an older setup. If found, treat it as the current choices and, after writing the new rule in step 5, delete the stale copy (asking the user first) so both files don't load at once and drift apart. Otherwise start from those defaults. A line whose role is not in step 5, such as `how critics`, is from a retired role. Drop it.
+The default role-to-model mapping is the rule shape shown in step 5 below. If `~/.devin/rules/pstack-models.md` already exists, read it and treat its `# budget` line and its role values as the current choices. Otherwise start from those defaults. A line whose role is not in step 5, such as `how critics`, is from a retired role. Drop it.
 
 ### 3. Budget, map, and confirm
 
