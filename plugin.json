@@ -6,8 +6,8 @@
   "author": {
     "name": "Lauren Tan"
   },
-  "homepage": "https://github.com/cursor/plugins/tree/main/pstack",
-  "repository": "https://github.com/cursor/plugins",
+  "homepage": "https://github.com/pstack-ports/devin-pstack",
+  "repository": "https://github.com/pstack-ports/devin-pstack",
   "license": "MIT",
   "keywords": [
     "pstack",

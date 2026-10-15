@@ -61,9 +61,9 @@ elif raw=$(gh pr list --author "@me" --state all --limit 1000 \
 fi
 [ -s "$prs" ] || echo "[]" > "$prs"
 
-# Transcripts dir: ~/.cursor/projects/<slugified-repo-path>/agent-transcripts.
-slug=$(printf '%s' "$main_wt" | sed 's#^/##; s#/#-#g')
-transcripts="$HOME/.cursor/projects/$slug/agent-transcripts"
+# Devin session store: per-session data under the app's user dir.
+transcripts="$HOME/Library/Application Support/Devin/User"
+[ "$(uname)" = "Darwin" ] || transcripts="$HOME/.config/devin"
 now=$(date +%s)
 
 echo "# base: $base"
