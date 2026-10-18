@@ -8,7 +8,7 @@ triggers: [user]
 
 Investigate the motivation and intent behind code. The companion `how` skill answers what the code does and how it works. `why` answers what forces led to its shape.
 
-Each spawn below names a role line in the `pstack-models.md` rule and a default. Map the value to the spawn's `profile`: a real slug `M` becomes `pstack-M-ro`; `auto`, `inherit-parent`, or a missing rule or line uses `subagent_general` with a read-only brief. Create a missing `pstack-M-ro` profile per `/pstack:setup-pstack` rather than swapping models. Pick each subagent's reasoning level and fast or standard speed for the job, per the Subagents section of the **poteto-mode** skill.
+Each spawn below names a role line in the `pstack-models.md` rule and a default. Map the value to the spawn's `profile`: a real slug `M` becomes `pstack-M-ro`; `auto`, `inherit-parent`, or a missing rule or line uses `subagent_general` with a read-only brief. Create a missing `pstack-M-ro` profile per `/pstack:setup-pstack` rather than swapping models. An entry `devin models list` doesn't report counts as a rejected slug; never create a profile for it. Pick each subagent's reasoning level and fast or standard speed for the job, per the Subagents section of the **poteto-mode** skill.
 
 **Do not use `subagent_explore` here.** It strips MCP and shell access, which disables the MCP-backed investigators and the synthesizer's citation spot-checks. Investigators still shouldn't write anything.
 
