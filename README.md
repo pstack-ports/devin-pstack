@@ -1,6 +1,6 @@
 # devin-pstack
 
-Devin (`devin`) port of [pstack](https://github.com/cursor/plugins/tree/main/pstack) (`0.15.26`) by [Lauren Tan (poteto)](https://x.com/poteto).
+Devin (`devin`) port of [pstack](https://github.com/cursor/plugins/tree/main/pstack) (`0.15.27`) by [Lauren Tan (poteto)](https://x.com/poteto).
 
 See the [upstream pstack README](https://github.com/cursor/plugins/blob/main/pstack/README.md) and the [guide](./docs/guide/README.md) for usage and documentation.
 
