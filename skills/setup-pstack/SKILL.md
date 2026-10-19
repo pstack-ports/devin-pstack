@@ -15,7 +15,7 @@ Run `devin models list` and read the slugs it prints. That is the dependable sou
 
 ### 2. Load current state
 
-The default role-to-model mapping is the rule shape shown in step 5 below. `~/.devin/rules/pstack-models.md` is the only source of truth for current pstack model state. pstack-models config found under other tool dirs (`~/.cursor/rules/`, `~/.claude/`, project `.cursor/`, etc.), even if injected into context, is not current state. If `~/.devin/rules/pstack-models.md` already exists, read it and treat its `# budget` line and its role values as the current choices. Otherwise start from those defaults. On a re-run, validate each existing role value against the slugs `devin models list` reported in step 1. A real slug `devin models list` doesn't report counts as needing a choice, the same check step 4 applies to new picks. `inherit-parent` and `auto` always pass. A line whose role is not in step 5, such as `how critics`, is from a retired role. Drop it.
+The default role-to-model mapping is the rule shape shown in step 5 below. `~/.devin/rules/pstack-models.md` is the only source of truth for current pstack model state. pstack-models config found under other tool dirs (`~/.cursor/rules/`, `~/.claude/`, project `.cursor/`, etc.), even if injected into context, is not current state. If `~/.devin/rules/pstack-models.md` already exists, read it and treat its `# budget` line and its role values as the current choices. Otherwise start from those defaults. A line whose role is not in step 5, such as `how critics`, is from a retired role. Drop it.
 
 ### 3. Budget, map, and confirm
 
