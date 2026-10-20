@@ -28,6 +28,8 @@ You only override what you care about. A role with no line in the rule keeps the
 
 You might be wondering what happens on Adaptive. Set a role to `inherit-parent` or `auto` and pstack spawns that role's subagents with `subagent_general` or `subagent_explore`, so they follow your parent chat model. Both values mean the same thing, and neither is a model slug. For a panel role the value is a list, and one subagent runs per entry, so the list length sets the panel size. Setup also configures `swarm workers`, the default model for every `/pstack:swarm` worker unless a race names a model for each arm.
 
+On Fusion, pstack shares the work with the sidekick. A step that hands one agent hands-on work, like writing the code or running a check, goes to the sidekick. It runs on the sidekick model you picked in `/fusion`, not on that step's role line. Panels, fan-out, and second opinions still run as pstack subagents on the models in your rule. A role set to `auto` or `inherit-parent` can run on the lead model, at the lead's price. Chats without Fusion work as described above.
+
 ## Accept the verification offers, or don't
 
 At the end of setup, `/pstack:setup-pstack` looks for a way to prove app behavior in your project, either a `verify-*` skill or an existing harness. If it finds neither, it offers once to generate one with [`/pstack:create-verification-skill`](../../skills/create-verification-skill/SKILL.md).
@@ -45,7 +47,7 @@ After setup, start a new chat. The model rule applies to new sessions.
 pstack spends extra tokens on subagents and review panels. That's the price of the rigor. To spend fewer:
 
 - Rerun `/pstack:setup-pstack` and pick a smaller reasoning budget or cheaper models. A strong model in the main chat with cheaper, faster models in the code roles is a good split.
-- Set a role to `auto` or `inherit-parent` so it runs on the chat's own model.
+- Set a role to `auto` or `inherit-parent` so it runs on the chat's own model. On Fusion that can be the lead, so pin the sidekick's slug instead.
 - Shorten a panel list. Each entry runs one subagent.
 - Save `/pstack:poteto-mode` for work that needs rigor. A small, obvious edit doesn't.
 

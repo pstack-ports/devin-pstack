@@ -26,7 +26,7 @@ Prefer the CLI transcript whose `id` matches this session. Otherwise order candi
 
 One message, three `run_subagent` calls. Reviewers need MCP access to look up the tickets, chat threads, and observability traces the transcript references, so do not use `subagent_explore` — it has no MCP tools.
 
-Each reviewer and the synthesizer name a role line in the `pstack-models.md` rule and a default. Map the value to the spawn's `profile`: a real slug `M` becomes `pstack-M-ro`; `auto`, `inherit-parent`, or a missing rule or line uses `subagent_general` with a read-only brief. Create a missing `pstack-M-ro` profile per `/pstack:setup-pstack` rather than swapping models. An entry `devin models list` doesn't report counts as a rejected slug; never create a profile for it. Pick each subagent's reasoning level and fast or standard speed for the job, per the Subagents section of the **poteto-mode** skill.
+Each reviewer and the synthesizer name a role line in the `pstack-models.md` rule and a default. Map the value to the spawn's `profile`: a real slug `M` becomes `pstack-M-ro`; `auto`, `inherit-parent`, or a missing rule or line uses `subagent_general` with a read-only brief. Create a missing `pstack-M-ro` profile per `/pstack:setup-pstack` rather than swapping models. An entry `devin models list` doesn't report, or any `fusion-*` entry, counts as a rejected slug; never create a profile for it. Pick each subagent's reasoning level and fast or standard speed for the job, per the Subagents section of the **poteto-mode** skill.
 
 | Lens | Role line | Default `model` | Prompt template |
 |---|---|---|---|
