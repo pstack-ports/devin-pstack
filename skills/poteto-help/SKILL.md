@@ -41,9 +41,9 @@ When the model rule is missing and it matters, ask whether the user wants to pic
 
 Installing changes nothing until the user invokes a skill. Only `/pstack:setup-pstack` loads from the user's words. The [README](../../README.md) and [guide page 1](../../docs/guide/01-setup.md) have the details. Offer to word their first prompt with them, per [`references/prompting.md`](references/prompting.md).
 
-If cost is the worry, say where the tokens go and how to spend fewer. pstack spends extra tokens on subagents and review panels. Rerun `/pstack:setup-pstack` and pick a smaller budget or cheaper models. A role set to `auto` or `inherit-parent` runs on the chat's model, which saves tokens when the chat runs on Auto or a cheaper model. A shorter panel list runs fewer subagents, one for each entry. Save `/pstack:poteto-mode` for work that needs rigor.
+If cost is the worry, say where the tokens go and how to spend fewer. pstack spends extra tokens on subagents and review panels. Rerun `/pstack:setup-pstack` and pick a smaller budget or cheaper models. A role set to `auto` or `inherit-parent` runs on the chat's model, which saves tokens when the chat runs on Auto or a cheaper model. On Fusion it can run on the lead model, so pinning the sidekick's slug costs less. A shorter panel list runs fewer subagents, one for each entry. Save `/pstack:poteto-mode` for work that needs rigor.
 
-This is the Devin port of pstack. Its skills use the Agent Skills format, its subagents run on Devin's `run_subagent`, and per-role models work through the `pstack-<slug>` profiles `/pstack:setup-pstack` writes.
+This is the Devin port of pstack. Its skills use the Agent Skills format, its subagents run on Devin's `run_subagent`, and per-role models work through the `pstack-<slug>` profiles `/pstack:setup-pstack` writes. On Fusion, a step that hands one agent hands-on work goes to the sidekick, and panels and fan-out stay on `run_subagent`.
 
 ## Start a task with `/pstack:poteto-mode`
 
