@@ -26,7 +26,7 @@ Update mode changes the rest of the flow:
 
 ### 1. Mine their history
 
-Locate the active workspace's transcripts before fanning out. `devin list` names this directory's sessions; their data lives under `~/Library/Application Support/Devin/` on macOS (`%APPDATA%\devin` on Windows). Use only this workspace's sessions. Don't sweep unrelated projects' sessions. That crosses workspace boundaries and reads private chats.
+Locate the active workspace's transcripts before fanning out. `devin list --format json` names this directory's sessions. The CLI stores them in `~/.local/share/devin/cli/sessions.db` (`$XDG_DATA_HOME` or `DEVIN_SESSIONS_DIR` when set; `%APPDATA%\devin\cli\` on Windows). Don't read other directories' sessions. Use only this workspace's sessions. Don't sweep unrelated projects' sessions. That crosses workspace boundaries and reads private chats.
 
 Survey recent agent conversations within that scope for recurring patterns. Run multiple parallel subagents across slices of history (e.g. last 2-4 weeks, split into 3 slices so each has enough material). Pick each subagent's reasoning level and fast or standard speed for the job, per the Subagents section of the **poteto-mode** skill. Each slice mining subagent reads transcripts from the workspace-scoped path the parent provides, looks for the signals below, and returns a short structured list of patterns it saw with evidence pointers. Default signals worth hunting:
 
@@ -93,12 +93,12 @@ Work in a worktree off main. Commit and open a PR. Don't push to main directly.
 
 ## Evaluation
 
-A `-mode` skill is subjective output. A `create-skill`-style test/iterate benchmark loop isn't useful here. Vibe-check with the user: does it read like them? Did it miss anything? Then ship.
+A `-mode` skill is subjective output. An authoring-playbook-style test/iterate benchmark loop isn't useful here. Vibe-check with the user: does it read like them? Did it miss anything? Then ship.
 
 Run a description-optimization loop only if the skill's trigger accuracy turns out to be a problem in practice.
 
 ## When not to use
 
-- User wants a task-specific skill (not working conventions): `create-skill` alone, no mining required.
+- User wants a task-specific skill (not working conventions): run the Authoring or modifying a skill playbook (`skills/poteto-mode/playbooks/authoring-a-skill.md`) alone, no mining required.
 - User wants to capture one narrow workflow (e.g. "how I write commit messages"). That's a regular skill, not a mode skill.
 

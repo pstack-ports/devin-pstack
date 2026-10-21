@@ -54,7 +54,7 @@ Commit it only when the work is ambitious enough that a reviewer needs the trail
 
 ## Audit the log against the transcript
 
-At the end of the run, before handing back, check the log told the truth. Read this run's transcript in Devin's session store: `devin list` names this directory's sessions and `~/Library/Application Support/Devin/` on macOS (`%APPDATA%\devin` on Windows) holds the per-session data. Don't read unrelated projects' sessions. That reads private chats. Walk this run's rows against what actually happened. Each stretch of them begins at one of this run's `start` rows, or at the first row if this run created the log, and ends at the next `start` row of another run:
+At the end of the run, before handing back, check the log told the truth. Read this run's transcript in Devin's session store. `devin list --format json` names this directory's sessions. The CLI stores them in `~/.local/share/devin/cli/sessions.db` (`$XDG_DATA_HOME` or `DEVIN_SESSIONS_DIR` when set; `%APPDATA%\devin\cli\` on Windows). Don't read other directories' sessions. Don't read unrelated projects' sessions. That reads private chats. Walk this run's rows against what actually happened. Each stretch of them begins at one of this run's `start` rows, or at the first row if this run created the log, and ends at the next `start` row of another run:
 
 - Check that every row maps to a real decision or action.
 - Check that each row's evidence resolves and shows what the row claims.

@@ -1,7 +1,7 @@
 ---
 name: typescript-best-practices
 description: TypeScript best practices. Use when reading or editing any .ts or .tsx file.
-triggers: [user, model]
+triggers: [user]
 ---
 
 # TypeScript best practices
