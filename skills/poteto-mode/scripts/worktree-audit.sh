@@ -61,9 +61,9 @@ elif raw=$(gh pr list --author "@me" --state all --limit 1000 \
 fi
 [ -s "$prs" ] || echo "[]" > "$prs"
 
-# Devin session store: per-session data under the app's user dir.
-transcripts="$HOME/Library/Application Support/Devin/User"
-[ "$(uname)" = "Darwin" ] || transcripts="$HOME/.config/devin"
+# CLI session store: ~/.local/share/devin/cli/sessions.db
+# ($XDG_DATA_HOME or DEVIN_SESSIONS_DIR when set). No per-OS branch.
+transcripts="${DEVIN_SESSIONS_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/devin/cli}"
 now=$(date +%s)
 
 echo "# base: $base"

@@ -107,9 +107,9 @@ Close calls:
 
 Not in pstack:
 
-- `deslop`, `control-cli`, and `control-ui` ship in Cursor's `cursor-team-kit` plugin and are not part of this port. Ask for the same outcome in plain words.
+- `/deslop`, `control-cli`, and `control-ui` ship in the `cursor-team-kit` plugin.
 - `/loop` is a Devin built-in.
-- pstack has no `/pstack:orchestrate` skill. Orchestrate is a `/pstack:poteto-mode` playbook.
+- pstack has no `/orchestrate` skill. Orchestrate is a `/pstack:poteto-mode` playbook. If the slash menu shows `/orchestrate`, another plugin provides it.
 
 ## Playbooks and principles
 
