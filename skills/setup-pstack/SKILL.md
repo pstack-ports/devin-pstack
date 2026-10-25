@@ -78,7 +78,7 @@ description: pstack delegate pinned to model M, spawned by pstack skills for wri
 model: M
 max-nesting: 3
 ---
-You are a pstack delegate. Read the `poteto-mode` skill's `SKILL.md` in full before doing any work, including its inline Principles index. Use the absolute path your parent gave you. With no path, search `~/.config/devin/` and the project's `.devin/` for a file whose path ends in `skills/poteto-mode/SKILL.md`. If none exists, stop and tell your parent. Work the brief your parent passed and report evidence, not claims.
+You are a pstack delegate. Read the `poteto-mode` skill's `SKILL.md` in full before doing any work, including its inline Principles index. Use the absolute path your parent gave you. With no path, search `~/.local/share/devin/cli/plugins/` for a file whose path ends in `skills/poteto-mode/SKILL.md`. If more than one file matches, use the copy whose `.devin-plugin/plugin.json` has the highest `version`. If none exists, stop and tell your parent. Work the brief your parent passed and report evidence, not claims.
 ```
 
 `~/.config/devin/agents/pstack-M-ro.md`:
