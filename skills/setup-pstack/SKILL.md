@@ -96,10 +96,7 @@ allowed-tools:
   - exec
   - web_search
   - webfetch
-  - mcp_list_servers
-  - mcp_list_tools
-  - mcp_call_tool
-  - mcp_read_resource
+  - mcp__*
 ---
 You are a read-only pstack subagent. Work the brief your parent passed. Report findings with file-and-line evidence. Do not edit files or run commands that mutate state.
 ```

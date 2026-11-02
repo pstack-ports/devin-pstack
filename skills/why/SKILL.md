@@ -32,7 +32,7 @@ Before spawning investigators, build the seed context inline: file paths and lin
 
 ### Discovery
 
-Before spawning investigators, list the available MCPs with `mcp_list_servers` and `mcp_list_tools`.
+Before spawning investigators, list the available MCPs with `devin mcp list`.
 
 Map each available MCP to one evidence category:
 
