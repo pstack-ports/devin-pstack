@@ -24,7 +24,7 @@ Open a todolist with one entry per phase before launching anything.
 
 ## Phase B: Fan out
 
-Spawn all N workers as their own shell sessions (`devin --cloud "<brief>"`; `run_subagent` has no cloud option), tracked through `devin list` and their session URLs. Use `run_subagent`, all N in one message, with the step 3 `profile` and `is_background: true`, only when the worker needs access to something on the user's computer. Cloud sessions load plugin skills but not plugin subagent profiles, so a cloud worker cannot spawn `pstack-*` or `pstack:poteto-agent` delegates — keep cloud workers leaf-level and run anything that fans out locally.
+Spawn all N workers as their own shell sessions (`devin --cloud -- "<brief>"`; `run_subagent` has no cloud option), tracked through `devin list` and their session URLs. Use `run_subagent`, all N in one message, with the step 3 `profile` and `is_background: true`, only when the worker needs access to something on the user's computer. Cloud sessions load plugin skills but not plugin subagent profiles, so a cloud worker cannot spawn `pstack-*` or `pstack:poteto-agent` delegates — keep cloud workers leaf-level and run anything that fans out locally.
 
 When a worker must start from a non-default pushed branch, name the branch in its brief so the cloud session or worktree checks it out first.
 
