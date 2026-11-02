@@ -24,7 +24,7 @@ Remaining triggers:
 - Nontrivial multi-step → write the throughput checkpoint (Feature step 3).
 - Any prose surface, your reply to the user included → the **unslop** skill. Write the reply per **Writing the reply**. Agent-facing prose also follows the Authoring or modifying a skill playbook (`playbooks/authoring-a-skill.md`).
 - Docs, RFCs, readmes, PR descriptions, or commit messages → the **technical-writing** skill (`/pstack:technical-writing`).
-- Before commit → the `deslop` skill (`/deslop`).
+- Before commit → the `deslop` skill (`/pstack:deslop`).
 - Before review → the **no-comments** skill (`/pstack:no-comments`).
 - Shipping UI / IDE / CLI → the matching control skill. pstack includes `control-cli` (CLIs and TUIs) and `control-ui` (browser / Electron / web UIs). For bug fixes, reproduce first on the same surface yourself. Hand to the user only under the narrow Bug fix step 1 exception.
 - Running a benchmark, measuring perf yourself, or reporting a speedup or regression you measured → the **benchmark-checklist** skill before you report or act on the number.

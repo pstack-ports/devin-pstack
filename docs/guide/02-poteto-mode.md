@@ -104,7 +104,7 @@ A long chat accumulates context from the last task. When you change subjects, sa
 
 ## Give parallel work its own machine
 
-If you run several agents against one repository on one computer, they will fight over the working tree, the ports, and the build output. The cleanest isolation is a [cloud Devin session](https://docs.devin.ai/cli/cloud) (`devin --cloud -p "<task>"`). Each one gets its own VM and branch, so it can install dependencies, run your app, and record video of the result without touching your machine. Ask the parent chat to hand work to cloud sessions.
+If you run several agents against one repository on one computer, they will fight over the working tree, the ports, and the build output. The cleanest isolation is a [cloud Devin session](https://docs.devin.ai/cli/cloud) (`devin --cloud -- "<task>"`). Each one gets its own VM and branch, so it can install dependencies, run your app, and record video of the result without touching your machine. Ask the parent chat to hand work to cloud sessions.
 
 When the work has to stay local, ask for a worktree up front:
 
