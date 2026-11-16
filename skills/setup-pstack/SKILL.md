@@ -15,7 +15,15 @@ Run `devin models list` and read the slugs it prints. That is the dependable sou
 
 ### 2. Load current state
 
-The default role-to-model mapping is the rule shape shown in step 5 below. `~/.devin/rules/pstack-models.md` is the only source of truth for current pstack model state. pstack-models config found under other tool dirs (`~/.cursor/rules/`, `~/.claude/`, project `.cursor/`, etc.), even if injected into context, is not current state. If `~/.devin/rules/pstack-models.md` already exists, read it and treat its `# budget` line and its role values as the current choices. Otherwise start from those defaults. A line whose role is not in step 5, such as `how critics`, is from a retired role. Drop it.
+The default role-to-model mapping is the rule shape shown in step 5 below. `~/.devin/rules/pstack-models.md` is the only source of truth for current pstack model state. pstack-models config found under other tool dirs (`~/.cursor/rules/`, `~/.claude/`, project `.cursor/`, etc.), even if injected into context, is not current state. If `~/.devin/rules/pstack-models.md` already exists, read it and treat its `# budget` line and its role values as the current choices. Otherwise start from those defaults. A line whose role is not in step 5, such as `how explorer` or `why investigators`, is from a retired role. Drop it.
+
+A rule without the `# defaults: 2` line comes from an older setup. That setup wrote a line for every role, so some of its values are old defaults, not choices. An old slug is one that matches `swe-2-*`. Before step 3, replace these values:
+
+- An old slug in `feature, refactoring`, `bug-fix`, `perf-issue`, `hillclimb`, `reflect tooling`, or `swarm workers` takes the role's step 5 default.
+- A `claude-opus-*` value in `hardest tasks` takes the role's step 5 default.
+- In a panel role (`arena runners`, `arena cross-judge pool`, `architect runners`, `interrogate reviewers`), a list of exactly one `claude-opus-*` entry and one old slug, in either order, takes the role's step 5 list. In any other list, each old slug becomes `swe-2-high`.
+
+Every other value is the user's choice and stays, including an old slug in any other role and every `inherit-parent` or `auto` value. Tell the user which values you replaced.
 
 ### 3. Budget, map, and confirm
 
@@ -36,7 +44,7 @@ Every real slug written must be in the detected set. `inherit-parent` and `auto`
 
 ### 5. Write the rule
 
-Write `~/.devin/rules/pstack-models.md` with `trigger: always_on`, a `# budget` line with the chosen label and its target effort, and one line per role, using the same labels poteto-mode uses. Overwrite the whole file so re-runs stay idempotent. Shape:
+Write `~/.devin/rules/pstack-models.md` with `trigger: always_on`, the `# defaults: 2` line, a `# budget` line with the chosen label and its target effort, and one line per role, using the same labels poteto-mode uses. Overwrite the whole file so re-runs stay idempotent. Shape:
 
 ```
 ---
@@ -45,6 +53,7 @@ trigger: always_on
 ---
 # pstack model configuration. One line per role. Delete a line to fall back to the skill default.
 # `inherit-parent` or `auto` as a value: the role runs on the parent chat model (spawn `subagent_general` or `subagent_explore`). Alias entries in a panel list still count toward its fan-out.
+# defaults: 2
 # budget: large (xhigh)
 feature, refactoring: swe-2-high
 bug-fix: swe-2-high
@@ -52,10 +61,6 @@ perf-issue: swe-2-high
 hillclimb: swe-2-high
 judgment and prose: claude-opus-5-5-xhigh
 hardest tasks: claude-opus-5-5-xhigh
-how explorer: swe-2-high
-how explainer: claude-opus-5-5-xhigh
-why investigators: swe-2-high
-why synthesizer: claude-opus-5-5-xhigh
 reflect tooling: swe-2-high
 reflect judgment, divergent, synthesizer: claude-opus-5-5-xhigh
 arena runners: claude-opus-5-5-xhigh, swe-2-high
