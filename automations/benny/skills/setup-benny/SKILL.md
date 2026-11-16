@@ -45,7 +45,6 @@ Preserve every unrelated top-level setting and every other plugin entry. If `req
 
 Reload the target project or start a fresh agent rooted there. Verify that these shared pstack skills resolve from project scope:
 
-- `how`
 - `why`
 - `tdd`
 - `unslop`

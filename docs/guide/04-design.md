@@ -12,7 +12,7 @@ The two most common design mistakes are taking the agent's first design and poli
 /pstack:architect design the import pipeline before writing any code. i care most about how callers use it.
 ```
 
-[`/pstack:architect`](../../skills/architect/SKILL.md) grounds itself first, running `/pstack:how` over the code the design touches and `/pstack:why` when it moves ownership or layers. Then it runs `/pstack:arena` to produce competing design sketches, with the caller's usage written first in each, followed by types, signatures, and a module map.
+[`/pstack:architect`](../../skills/architect/SKILL.md) grounds itself first, tracing the code the design touches and running `/pstack:why` when it moves ownership or layers. Then it runs `/pstack:arena` to produce competing design sketches, with the caller's usage written first in each, followed by types, signatures, and a module map.
 
 By default it proceeds straight from the synthesized design into implementation. If you want to see the design first, say so:
 
