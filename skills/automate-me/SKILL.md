@@ -14,7 +14,7 @@ This skill orchestrates three passes: an inline mining pass (see step 1), SKILL.
 
 ### 0. Check for an existing skill
 
-Look recursively for `.devin/skills/**/*-mode/SKILL.md` and `~/.config/devin/skills/*-mode/SKILL.md` matching the user's handle. Mode skills can live in a personal category directory (`.devin/skills/<handle>/`), not only at the top level. If one exists, confirm intent with `ask_user_question` (unless they already said "update my skill" or similar):
+Look recursively for `.devin/skills/**/*-mode/SKILL.md`, `.agents/skills/**/*-mode/SKILL.md`, `~/.config/devin/skills/*-mode/SKILL.md`, and `~/.agents/skills/*-mode/SKILL.md` matching the user's handle. Mode skills can live in a personal category directory (`.devin/skills/<handle>/` or `.agents/skills/<handle>/`), not only at the top level. If one exists, confirm intent with `ask_user_question` (unless they already said "update my skill" or similar):
 
 - Update the existing skill (default for repeat runs)
 - Start fresh (rare, ask why before doing it)
@@ -66,7 +66,7 @@ The **poteto-mode** skill shows the shape. Read it for granularity. Don't copy i
 
 Author the SKILL.md directly, following Devin's skill format (YAML frontmatter over a prompt body). Placement:
 
-- Path: preserve an existing mode skill's category. For a new mode, use `.devin/skills/<handle>/<handle>-mode/SKILL.md` when the repo has an established personal category for that handle. Otherwise default to `.devin/skills/<handle>-mode/SKILL.md` in the project (or `~/.config/devin/skills/<handle>-mode/` if the user prefers a personal skill).
+- Path: preserve an existing mode skill's category, including one under `.devin/skills/`, `.agents/skills/`, `~/.config/devin/skills/`, or `~/.agents/skills/`. For a new mode, use `.devin/skills/<handle>/<handle>-mode/SKILL.md` when the repo has an established personal category for that handle. Otherwise default to `.devin/skills/<handle>-mode/SKILL.md` in the project (or `~/.config/devin/skills/<handle>-mode/`, `%APPDATA%\devin\skills\<handle>-mode\` on Windows, if the user prefers a personal skill).
 - Handle: the user's first name or chosen identifier.
 - Frontmatter `description`: trigger on their name + `/<handle>-mode` + "work in their style", not on generic keywords like "write code" or "review PR".
 - Frontmatter formatting: keep `description` as one YAML scalar. Quote it or use `description: >-` with indented continuation lines when punctuation or wrapping requires it.
