@@ -48,7 +48,7 @@ Present the synthesizer's full Accepted / Rejected / Backlog output and wait for
 
 File each Backlog item to your team's devex or backlog tracker without waiting. Only the Accepted list waits for approval.
 
-Never edit a skill under `plugins/cache/`. Before approval, show its destination, `.devin/skills/<skill>/` or `~/.config/devin/skills/<skill>/`. After approval, copy the skill folder there and edit the copy. Never open a PR or push.
+Never edit a skill under `plugins/cache/`. Before approval, show its destination: keep a skill already under `.devin/skills/`, `.agents/skills/`, `~/.config/devin/skills/`, or `~/.agents/skills/` where it is; otherwise `.devin/skills/<skill>/` or `~/.config/devin/skills/<skill>/` (`%APPDATA%\devin\skills\<skill>\` on Windows). After approval, copy the skill folder there and edit the copy. Never open a PR or push.
 
 Follow each approved row's Routing exactly:
 
